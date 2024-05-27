@@ -16,251 +16,43 @@
     <div class="container mt-4">
       <div id="product-container" class="d-flex flex-wrap mb-2">
         <!-- Card 1 -->
-        <div class="card">
-          <img
-            src="https://via.placeholder.com/150"
-            class="card-img-top"
-            alt="Product Image"
-          />
-          <div class="card-body">
-            <h5 class="card-title">Product Title</h5>
-            <p class="card-text">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            </p>
-            <a href="#" class="btn btn-primary">Learn More</a>
-          </div>
-        </div>
+        <x-product-card/>
         <!-- Card 2 -->
-        <div class="card">
-          <img
-            src="https://via.placeholder.com/150"
-            class="card-img-top"
-            alt="Product Image"
-          />
-          <div class="card-body">
-            <h5 class="card-title">Product Title</h5>
-            <p class="card-text">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            </p>
-            <a href="#" class="btn btn-primary">Learn More</a>
-          </div>
-        </div>
+        <x-product-card/>
         <!-- Card 3 -->
-        <div class="card">
-          <img
-            src="https://via.placeholder.com/150"
-            class="card-img-top"
-            alt="Product Image"
-          />
-          <div class="card-body">
-            <h5 class="card-title">Product Title</h5>
-            <p class="card-text">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            </p>
-            <a href="#" class="btn btn-primary">Learn More</a>
-          </div>
-        </div>
+        <x-product-card/>
         <!-- Card 4 -->
-        <div class="card">
-          <img
-            src="https://via.placeholder.com/150"
-            class="card-img-top"
-            alt="Product Image"
-          />
-          <div class="card-body">
-            <h5 class="card-title">Product Title</h5>
-            <p class="card-text">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            </p>
-            <a href="#" class="btn btn-primary">Learn More</a>
-          </div>
-        </div>
+        <x-product-card/>
       </div>
       <div id="product-container" class="d-flex flex-wrap mb-2">
         <!-- Card 1 -->
-        <div class="card">
-          <img
-            src="https://via.placeholder.com/150"
-            class="card-img-top"
-            alt="Product Image"
-          />
-          <div class="card-body">
-            <h5 class="card-title">Product Title</h5>
-            <p class="card-text">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            </p>
-            <a href="#" class="btn btn-primary">Learn More</a>
-          </div>
-        </div>
+        <x-product-card/>
         <!-- Card 2 -->
-        <div class="card">
-          <img
-            src="https://via.placeholder.com/150"
-            class="card-img-top"
-            alt="Product Image"
-          />
-          <div class="card-body">
-            <h5 class="card-title">Product Title</h5>
-            <p class="card-text">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            </p>
-            <a href="#" class="btn btn-primary">Learn More</a>
-          </div>
-        </div>
+        <x-product-card/>
         <!-- Card 3 -->
-        <div class="card">
-          <img
-            src="https://via.placeholder.com/150"
-            class="card-img-top"
-            alt="Product Image"
-          />
-          <div class="card-body">
-            <h5 class="card-title">Product Title</h5>
-            <p class="card-text">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            </p>
-            <a href="#" class="btn btn-primary">Learn More</a>
-          </div>
-        </div>
+        <x-product-card/>
         <!-- Card 4 -->
-        <div class="card">
-          <img
-            src="https://via.placeholder.com/150"
-            class="card-img-top"
-            alt="Product Image"
-          />
-          <div class="card-body">
-            <h5 class="card-title">Product Title</h5>
-            <p class="card-text">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            </p>
-            <a href="#" class="btn btn-primary">Learn More</a>
-          </div>
-        </div>
+        <x-product-card/>
       </div>
       <div id="product-container" class="d-flex flex-wrap mb-2">
         <!-- Card 1 -->
-        <div class="card">
-          <img
-            src="https://via.placeholder.com/150"
-            class="card-img-top"
-            alt="Product Image"
-          />
-          <div class="card-body">
-            <h5 class="card-title">Product Title</h5>
-            <p class="card-text">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            </p>
-            <a href="#" class="btn btn-primary">Learn More</a>
-          </div>
-        </div>
+        <x-product-card/>
         <!-- Card 2 -->
-        <div class="card">
-          <img
-            src="https://via.placeholder.com/150"
-            class="card-img-top"
-            alt="Product Image"
-          />
-          <div class="card-body">
-            <h5 class="card-title">Product Title</h5>
-            <p class="card-text">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            </p>
-            <a href="#" class="btn btn-primary">Learn More</a>
-          </div>
-        </div>
+        <x-product-card/>
         <!-- Card 3 -->
-        <div class="card">
-          <img
-            src="https://via.placeholder.com/150"
-            class="card-img-top"
-            alt="Product Image"
-          />
-          <div class="card-body">
-            <h5 class="card-title">Product Title</h5>
-            <p class="card-text">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            </p>
-            <a href="#" class="btn btn-primary">Learn More</a>
-          </div>
-        </div>
+        <x-product-card/>
         <!-- Card 4 -->
-        <div class="card">
-          <img
-            src="https://via.placeholder.com/150"
-            class="card-img-top"
-            alt="Product Image"
-          />
-          <div class="card-body">
-            <h5 class="card-title">Product Title</h5>
-            <p class="card-text">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            </p>
-            <a href="#" class="btn btn-primary">Learn More</a>
-          </div>
-        </div>
+        <x-product-card/>
       </div>
       <div id="product-container" class="d-flex flex-wrap mb-2">
         <!-- Card 1 -->
-        <div class="card">
-          <img
-            src="https://via.placeholder.com/150"
-            class="card-img-top"
-            alt="Product Image"
-          />
-          <div class="card-body">
-            <h5 class="card-title">Product Title</h5>
-            <p class="card-text">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            </p>
-            <a href="#" class="btn btn-primary">Learn More</a>
-          </div>
-        </div>
+        <x-product-card/>
         <!-- Card 2 -->
-        <div class="card">
-          <img
-            src="https://via.placeholder.com/150"
-            class="card-img-top"
-            alt="Product Image"
-          />
-          <div class="card-body">
-            <h5 class="card-title">Product Title</h5>
-            <p class="card-text">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            </p>
-            <a href="#" class="btn btn-primary">Learn More</a>
-          </div>
-        </div>
+        <x-product-card/>
         <!-- Card 3 -->
-        <div class="card">
-          <img
-            src="https://via.placeholder.com/150"
-            class="card-img-top"
-            alt="Product Image"
-          />
-          <div class="card-body">
-            <h5 class="card-title">Product Title</h5>
-            <p class="card-text">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            </p>
-            <a href="#" class="btn btn-primary">Learn More</a>
-          </div>
-        </div>
+        <x-product-card/>
         <!-- Card 4 -->
-        <div class="card">
-          <img
-            src="https://via.placeholder.com/150"
-            class="card-img-top"
-            alt="Product Image"
-          />
-          <div class="card-body">
-            <h5 class="card-title">Product Title</h5>
-            <p class="card-text">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            </p>
-            <a href="#" class="btn btn-primary">Learn More</a>
-          </div>
-        </div>
+        <x-product-card/>
       </div>
     </div>
   </section>
