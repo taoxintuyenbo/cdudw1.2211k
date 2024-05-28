@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-@section('title','Home')
+@section('title','Banner')
 @section('content')
 <div class="wrapper">
   <nav class="main-header navbar navbar-expand navbar-white navbar-light">
@@ -42,7 +42,7 @@
         </div>
       </div>
       <nav class="mt-2">
-      <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -198,12 +198,59 @@
         <div class="card-header">
           <div class="row">
             <div class="col-12 text-right">
-              NUT
+            <a href="#" class="btn btn-sm btn-success ">
+                        <i class="fa fa-plus px-2" aria-hidden="true"></i>Add
+                    </a>
+                    <a href="#" class="btn btn-sm btn-danger ">
+                        <i class="fa fa-trash px-2" aria-hidden="true"></i>Trash bin
+                    </a>
             </div>
           </div>
         </div>
         <div class="card-body">
-          NOI DUNG
+          <table class="table table-bordered table-hover table-striped"> 
+            <thead>
+            <tr>
+                <th class="text-center">#</th>
+                <th class="text-center">Image</th>
+
+                <th class="text-center">Banner Name</th>
+
+                <th class="text-center">Link</th>
+
+                <th class="text-center">Position</th>
+                <th class="text-center">Description</th>
+
+                <th class="text-center">Action</th>
+                <th class="text-center">ID</th>
+
+            </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td><img src="" alt="image"></td>
+                    <td>bannername</td>
+                    <td>bannerlink</td>
+                    <td>bannerposition</td>
+                    <td>banner desciiption</td>
+                    <td><a href="#" class="btn btn-sm btn-success ">
+                        <i class="fa fa-toggle-on" aria-hidden="true"></i>
+                    </a>
+                    <a href="#" class="btn btn-sm btn-info ">
+                        <i class="fa fa-eye" aria-hidden="true"></i>
+                    </a>
+                    <a href="#" class="btn btn-sm btn-primary ">
+                        <i class="fa fa-edit" aria-hidden="true"></i>
+                    </a>
+                    <a href="#" class="btn btn-sm btn-danger ">
+                        <i class="fa fa-trash" aria-hidden="true"></i>
+                    </a>
+                </td>
+                <td>id</td>
+                </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </section>
