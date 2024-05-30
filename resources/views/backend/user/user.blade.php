@@ -199,7 +199,7 @@
         <div class="card-header">
           <div class="row">
             <div class="col-12 text-right">
-            <a href="#" class="btn btn-sm btn-success ">
+            <a href="{{route('admin.user.create')}}" class="btn btn-sm btn-success ">
                         <i class="fa fa-plus px-2" aria-hidden="true"></i>Add
                     </a>
                     <a href="#" class="btn btn-sm btn-danger ">
@@ -223,20 +223,21 @@
                 <th class="text-center">Role</th>
                 <th class="text-center">Action</th>
                 <th class="text-center">ID</th>
-
+                <th class="text-center">Status</th>
             </tr>
             </thead>
             <tbody>
+              @foreach ($list as $row )
                 <tr>
-                    <td>1</td>
+                    <td><input type="checkbox" name="user_checkbox" value="1"></td>
                     <td><img src="" alt="image"></td>
-                    <td>name</td>
-                    <td>username</td>
-                    <td>gender</td>
-                    <td>phone</td>
-                    <td>email</td>
-                    <td>adress</td>
-                    <td>role</td>
+                    <td>{{$row->name}}</td>
+                    <td>{{$row->username}}</td>
+                    <td>{{$row->gender}}</td>
+                    <td>{{$row->phone}}</td>
+                    <td>{{$row->email}}</td>
+                    <td>{{$row->address}}</td>
+                    <td>{{$row->role}}</td>
                     <td><a href="#" class="btn btn-sm btn-success ">
                         <i class="fa fa-toggle-on" aria-hidden="true"></i>
                     </a>
@@ -250,8 +251,10 @@
                         <i class="fa fa-trash" aria-hidden="true"></i>
                     </a>
                 </td>
-                <td>id</td>
+                <td>{{$row->id}}</td>
+                <td>{{$row->status}}</td>
                 </tr>
+              @endforeach
             </tbody>
           </table>
         </div>

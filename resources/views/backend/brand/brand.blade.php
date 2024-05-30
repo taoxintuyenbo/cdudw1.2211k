@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-@section('title','Category')
+@section('title','Brand')
 @section('content')
 <div class="wrapper">
   <nav class="main-header navbar navbar-expand navbar-white navbar-light">
@@ -182,12 +182,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Blank Page</h1>
+            <h1>Brand Page</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Blank Page</li>
+              <li class="breadcrumb-item active">Brand Page</li>
             </ol>
           </div>
         </div>
@@ -198,9 +198,7 @@
         <div class="card-header">
           <div class="row">
             <div class="col-12 text-right">
-            <a href="#" class="btn btn-sm btn-success ">
-                        <i class="fa fa-plus px-2" aria-hidden="true"></i>Add
-                    </a>
+    
                     <a href="#" class="btn btn-sm btn-danger ">
                         <i class="fa fa-trash px-2" aria-hidden="true"></i>Trash bin
                     </a>
@@ -208,7 +206,59 @@
           </div>
         </div>
         <div class="card-body">
-          <table class="table table-bordered table-hover table-striped"> 
+          <div class="row">
+            <div class="col-md-3">
+            <form action="{{ route('admin.brand.store') }}" method="post">
+                                @csrf
+                                <div class="mb-3">
+                                    <label for="name">Name</label>
+                                    <input type="text" value="{{ old('name') }}" name="name" id="name" class="form-control">
+                                    @error('name')
+                                <div class="text-danger">{{ $message }}</div>
+                            @enderror
+                                </div>
+                                <div class="mb-3">
+                                    <label for="description">Description</label>
+                                    <textarea name="description" id="description" rows="3" class="form-control">{{ old('description') }}</textarea>
+                                    @error('description')
+                                <div class="text-danger">{{ $message }}</div>
+                            @enderror
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label for="sort_order">Sort Order</label>
+                                    <select name="sort_order" id="sort_order" class="form-control">
+                                        <option value="">Sort Order</option>
+                                        {!! $htmlsortorder !!}
+                                    </select>
+                                    @error('sort_order')
+                                <div class="text-danger">{{ $message }}</div>
+                            @enderror
+                                </div>
+                                <div class="mb-3">
+                                    <label for="image">Image</label>
+                                    <input type="file" name="image" id="image" class="form-control">
+                                    @error('image')
+                                <div class="text-danger">{{ $message }}</div>
+                            @enderror
+                                </div>
+                                <div class="mb-3">
+                                    <label for="status">Status</label>
+                                    <select name="status" id="status" class="form-control">
+                                        <option value="2">Show</option>
+                                        <option value="1">Hide</option>
+                                    </select>
+                                    @error('status')
+                                <div class="text-danger">{{ $message }}</div>
+                            @enderror
+                                </div>
+                                <div class="mb-3">
+                                    <button type="submit" class="btn btn-success">Add</button>
+                                </div>
+                            </form>
+            </div>
+            <div class="col-md-9">
+            <table class="table table-bordered table-hover table-striped"> 
             <thead>
             <tr>
                 <th class="text-center">#</th>
@@ -216,16 +266,18 @@
                 <th class="text-center">Brand Name</th>
                  <th class="text-center">Description</th>
                 <th class="text-center">Action</th>
+            
                 <th class="text-center">ID</th>
+                <th class="text-center">Status</th>
 
             </tr>
             </thead>
             <tbody>
+            @foreach ($list as $row)
                 <tr>
-                    <td>1</td>
-                    <td><img src="" alt="image"></td>
-                    <td>brandname</td>
-                     <td>Productbrand</td>
+                <input type="checkbox" name="brand_checkbox" value="1">                    <td><img src="" alt="image"></td>
+                    <td>{{$row->name}}</td>
+                     <td>{{$row->description}}</td>
                     <td><a href="#" class="btn btn-sm btn-success ">
                         <i class="fa fa-toggle-on" aria-hidden="true"></i>
                     </a>
@@ -239,10 +291,14 @@
                         <i class="fa fa-trash" aria-hidden="true"></i>
                     </a>
                 </td>
-                <td>id</td>
+                <td>{{$row->id}}</td>
+                <td>{{$row->status}}</td>
                 </tr>
+              @endforeach
             </tbody>
           </table>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -256,3 +312,4 @@
   <aside class="control-sidebar control-sidebar-dark">
   </aside>
 </div>@endsection
+

@@ -4,7 +4,10 @@ namespace App\Http\Controllers\backend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
+use illuminate\Support\Str;
+use App\Models\Order;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\StoreOrderRequest;
 class OrderController extends Controller
 {
     /**
@@ -12,12 +15,13 @@ class OrderController extends Controller
      */
     public function index()
     {
-        return view("backend.order");
+        $list= Order::where('order.status','!=',0)->orderBy('order.created_at','desc')
+        ->join('user','user.id','=','order.user_id')
+        ->get();
+        return view("backend.order.order",compact('list'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
+
     public function create()
     {
         //
@@ -59,6 +63,10 @@ class OrderController extends Controller
      * Remove the specified resource from storage.
      */
     public function destroy(string $id)
+    {
+        //
+    }    
+    public function status(string $id)
     {
         //
     }

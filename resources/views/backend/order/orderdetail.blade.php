@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-@section('title','Menu')
+@section('title','Orderdetail')
 @section('content')
 <div class="wrapper">
   <nav class="main-header navbar navbar-expand navbar-white navbar-light">
@@ -182,12 +182,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Blank Page</h1>
+            <h1>Orderdetail Page</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Blank Page</li>
+              <li class="breadcrumb-item active">Orderdetail Page</li>
             </ol>
           </div>
         </div>
@@ -212,12 +212,13 @@
             <thead>
             <tr>
                 <th class="text-center">#</th>
-                <th class="text-center">Menu Name</th>
-                <th class="text-center">Link</th>
-                <th class="text-center">Parent Name</th>
-                <th class="text-center">Type</th>
-                <th class="text-center">Position</th>
-                <th class="text-center">Action</th>
+                <th class="text-center">Order ID</th>
+                <th class="text-center">Product name</th>
+                <th class="text-center">Price</th>
+                <th class="text-center">Quantity</th>
+                <th class="text-center">Discount</th>
+                <th class="text-center">Total</th>
+                 <th class="text-center">Action</th>
                 <th class="text-center">ID</th>
 
             </tr>
@@ -225,12 +226,13 @@
             <tbody>
                 <tr>
                     <td>1</td>
-                    <td>menuname</td>
-                    <td>link</td>
-                    <td>parentname</td>
-                    <td>type</td>
-                    <td>position</td>
-                     <td><a href="#" class="btn btn-sm btn-success ">
+                    <td>orderid</td>
+                    <td>producrnmae</td>
+                    <td>price</td>
+                    <td>quantity</td>
+                    <td>discount</td>
+                    <td>total</td>
+                    <td><a href="#" class="btn btn-sm btn-success ">
                         <i class="fa fa-toggle-on" aria-hidden="true"></i>
                     </a>
                     <a href="#" class="btn btn-sm btn-info ">

@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-@section('title','Orderdetail')
+@section('title','Addpost')
 @section('content')
 <div class="wrapper">
   <nav class="main-header navbar navbar-expand navbar-white navbar-light">
@@ -182,12 +182,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Blank Page</h1>
+            <h1>Post Page</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Blank Page</li>
+              <li class="breadcrumb-item active">Post Page</li>
             </ol>
           </div>
         </div>
@@ -195,64 +195,98 @@
     </section>
     <section class="content">
       <div class="card">
-        <div class="card-header">
-          <div class="row">
-            <div class="col-12 text-right">
-            <a href="#" class="btn btn-sm btn-success ">
-                        <i class="fa fa-plus px-2" aria-hidden="true"></i>Add
-                    </a>
-                    <a href="#" class="btn btn-sm btn-danger ">
-                        <i class="fa fa-trash px-2" aria-hidden="true"></i>Trash bin
-                    </a>
-            </div>
-          </div>
-        </div>
         <div class="card-body">
-          <table class="table table-bordered table-hover table-striped"> 
-            <thead>
-            <tr>
-                <th class="text-center">#</th>
-                <th class="text-center">Order ID</th>
-                <th class="text-center">Product name</th>
-                <th class="text-center">Price</th>
-                <th class="text-center">Quantity</th>
-                <th class="text-center">Discount</th>
-                <th class="text-center">Total</th>
-                 <th class="text-center">Action</th>
-                <th class="text-center">ID</th>
-
-            </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>orderid</td>
-                    <td>producrnmae</td>
-                    <td>price</td>
-                    <td>quantity</td>
-                    <td>discount</td>
-                    <td>total</td>
-                    <td><a href="#" class="btn btn-sm btn-success ">
-                        <i class="fa fa-toggle-on" aria-hidden="true"></i>
-                    </a>
-                    <a href="#" class="btn btn-sm btn-info ">
-                        <i class="fa fa-eye" aria-hidden="true"></i>
-                    </a>
-                    <a href="#" class="btn btn-sm btn-primary ">
-                        <i class="fa fa-edit" aria-hidden="true"></i>
-                    </a>
-                    <a href="#" class="btn btn-sm btn-danger ">
-                        <i class="fa fa-trash" aria-hidden="true"></i>
-                    </a>
-                </td>
-                <td>id</td>
-                </tr>
-            </tbody>
-          </table>
+        <form action="{{route('admin.post.store')}}" method="post">
+                @csrf
+                <h1 class="text-center">Add post</h1>
+                <div class="container">
+                    <div class="row g-3">
+                        <div class="col-md-12 mb-3">
+                            <label for="topic_id" class="form-label">Topic</label>
+                            <select name="topic_id" id="topic_id" class="form-control">
+                                <option value="">Topic</option>
+                                {{!!$htmltopicid!!}}
+                            </select>
+                            @error('topic_id')
+                                <div class="text-danger">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        <div class="col-md-12 mb-3">
+                            <label for="title" class="form-label">Title</label>
+                            <input
+                                type="text"
+                                id="title"
+                                class="form-control"
+                                name="title"
+                                value="{{ old('title') }}"
+                            />
+                            @error('title')
+                                <div class="text-danger">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        <div class="col-md-12 mb-3">
+                            <label for="detail" class="form-label">Detail</label>
+                            <textarea name="detail" id="detail" cols="155" rows="2" >{{old("description")}}</textarea>
+                            @error('detail')
+                                <div class="text-danger">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        <div class="col-md-12 mb-3">
+                            <label for="description" class="form-label">Description</label>
+                            <textarea name="description" id="description"  cols="155" rows="5" >{{old("description")}}</textarea>
+                            @error('description')
+                                <div class="text-danger">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        <div class="col-md-12 mb-3">
+                            <label for="image" class="form-label">Image</label>
+                            <input
+                                type="file"
+                                id="image"
+                                class="form-control"
+                                name="image"
+                            />
+                            @error('image')
+                                <div class="text-danger">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        <div class="col-md-12 mb-3">
+                            <label for="type" class="form-label">Type</label>
+                            <input
+                                type="text"
+                                id="type"
+                                class="form-control"
+                                name="type"
+                                value="{{ old('type') }}"
+                            /> 
+                            @error('type')
+                                <div class="text-danger">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        <div class="col-md-12 mb-3">
+                            <label for="status" class="form-label">Status</label>
+                            <select name="status" id="status" class="form-control">
+                                <option value="2">Show</option>
+                                <option value="1">Hide</option>
+                            </select>
+                            @error('pricesale')
+                                <div class="text-danger">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        <div class="col-md-12 mb-3">
+                            <button
+                                class="btn btn-primary w-100"
+                                type="submit"
+                            >
+                                Add post
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </form>
         </div>
       </div>
     </section>
-    <!-- /.CONTENT -->
   </div>
   <footer class="main-footer">
     <div class="float-right d-none d-sm-block">

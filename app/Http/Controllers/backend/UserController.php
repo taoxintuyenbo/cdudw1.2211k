@@ -4,7 +4,10 @@ namespace App\Http\Controllers\backend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
+use illuminate\Support\Str;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\StoreUserRequest;
 class UserController extends Controller
 {
     /**
@@ -12,7 +15,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view("backend.user");
+        $list = User::where('status','!=',0)->orderBy('created_at','desc')->get();
+        return view("backend.user.user",compact("list"));
     }
 
     /**
@@ -20,15 +24,28 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return view('backend.user.create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreUserRequest $request)
     {
-        //
+        $user = new User();
+        $user->name = $request->name;
+        $user->username = $request->username;
+        $user->password = $request->password;
+        $user->gender = $request->gender;
+        $user->phone = $request->phone;
+        $user->email =$request->email;
+        $user->roles =$request->roles;
+        $user->address =$request->address;
+        $user->created_at =date('Y-m-d H:i:s');
+        $user->created_by =Auth::id()??1;
+        $user->status = $request->status;
+        $user->save();
+        return redirect()->route('admin.user.index');
     }
 
     /**
@@ -59,6 +76,10 @@ class UserController extends Controller
      * Remove the specified resource from storage.
      */
     public function destroy(string $id)
+    {
+        //
+    }
+    public function status(string $id)
     {
         //
     }

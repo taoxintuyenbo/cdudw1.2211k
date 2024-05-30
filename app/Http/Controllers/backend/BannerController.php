@@ -4,7 +4,10 @@ namespace App\Http\Controllers\backend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
+use illuminate\Support\Str;
+use App\Models\Banner;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\StoreBannerRequest;
 class BannerController extends Controller
 {
     /**
@@ -12,23 +15,26 @@ class BannerController extends Controller
      */
     public function index()
     {
-        return view("backend.banner");
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
+        $list= Banner::where('status','!=',0)->orderBy('created_at','desc')->get();
+        return view("backend.banner.banner",compact("list"));
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreBannerRequest $request)
     {
-        //
+        $banner = new Banner();
+        $banner->name = $request->name;
+        $banner->link =$request->link;
+        $banner->position =$request->position;
+        $banner->image =$request->image;
+        $banner->description =$request->description;
+        $banner->created_at =date('Y-m-d H:i:s');
+        $banner->created_by =Auth::id()??1;
+        $banner->status = $request->status;
+        $banner->save();
+        return redirect()->route('admin.banner.index');
     }
 
     /**
@@ -59,6 +65,10 @@ class BannerController extends Controller
      * Remove the specified resource from storage.
      */
     public function destroy(string $id)
+    {
+        //
+    }
+    public function status(string $id)
     {
         //
     }

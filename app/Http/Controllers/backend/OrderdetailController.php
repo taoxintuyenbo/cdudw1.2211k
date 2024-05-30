@@ -4,7 +4,10 @@ namespace App\Http\Controllers\backend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
+use illuminate\Support\Str;
+use App\Models\Orderdetail;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\StoreOrderdetailRequest;
 class OrderdetailController extends Controller
 {
     /**
@@ -12,12 +15,10 @@ class OrderdetailController extends Controller
      */
     public function index()
     {
-        return view("backend.orderdetail");
+        $list= Orderdetail::where('status','!=',0)->orderBy('created_at','desc')->get();
+        return view("backend.order.orderdetail");
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
         //
@@ -26,7 +27,7 @@ class OrderdetailController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreOrderdetailRequest $request)
     {
         //
     }
@@ -59,6 +60,10 @@ class OrderdetailController extends Controller
      * Remove the specified resource from storage.
      */
     public function destroy(string $id)
+    {
+        //
+    }
+    public function status(string $id)
     {
         //
     }

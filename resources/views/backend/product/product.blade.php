@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-@section('title','Banner')
+@section('title','aProduct')
 @section('content')
 <div class="wrapper">
   <nav class="main-header navbar navbar-expand navbar-white navbar-light">
@@ -182,12 +182,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Blank Page</h1>
+            <h1>Product Page</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Blank Page</li>
+              <li class="breadcrumb-item active">Product Page</li>
             </ol>
           </div>
         </div>
@@ -198,7 +198,7 @@
         <div class="card-header">
           <div class="row">
             <div class="col-12 text-right">
-            <a href="#" class="btn btn-sm btn-success ">
+            <a href="{{route('admin.product.create')}}" class="btn btn-sm btn-success ">
                         <i class="fa fa-plus px-2" aria-hidden="true"></i>Add
                     </a>
                     <a href="#" class="btn btn-sm btn-danger ">
@@ -214,12 +214,11 @@
                 <th class="text-center">#</th>
                 <th class="text-center">Image</th>
 
-                <th class="text-center">Banner Name</th>
+                <th class="text-center">Product Name</th>
 
-                <th class="text-center">Link</th>
+                <th class="text-center">Category</th>
 
-                <th class="text-center">Position</th>
-                <th class="text-center">Description</th>
+                <th class="text-center">Brand</th>
 
                 <th class="text-center">Action</th>
                 <th class="text-center">ID</th>
@@ -227,13 +226,13 @@
             </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>1</td>
-                    <td><img src="" alt="image"></td>
-                    <td>bannername</td>
-                    <td>bannerlink</td>
-                    <td>bannerposition</td>
-                    <td>banner desciiption</td>
+              @foreach ($list as $row)
+              <tr>
+              <td><input type="checkbox" name="product_checkbox" value="1"></td>
+                    <td><img src="" alt="product image"></td>
+                    <td>{{$row->name}}</td>
+                    <td>{{$row->categoryname}}</td>
+                    <td>{{$row->brandname}}</td>
                     <td><a href="#" class="btn btn-sm btn-success ">
                         <i class="fa fa-toggle-on" aria-hidden="true"></i>
                     </a>
@@ -247,15 +246,15 @@
                         <i class="fa fa-trash" aria-hidden="true"></i>
                     </a>
                 </td>
-                <td>id</td>
+                <td>{{$row->id}}</td>
+              @endforeach
                 </tr>
             </tbody>
           </table>
         </div>
       </div>
     </section>
-    <!-- /.CONTENT -->
-  </div>
+    </div>
   <footer class="main-footer">
     <div class="float-right d-none d-sm-block">
       <b>Version</b> 3.2.0

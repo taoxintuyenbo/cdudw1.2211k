@@ -1,6 +1,5 @@
-
 @extends('layouts.admin')
-@section('title','Topic')
+@section('title','Order')
 @section('content')
 <div class="wrapper">
   <nav class="main-header navbar navbar-expand navbar-white navbar-light">
@@ -183,12 +182,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Blank Page</h1>
+            <h1>Order Page</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Blank Page</li>
+              <li class="breadcrumb-item active">Order Page</li>
             </ol>
           </div>
         </div>
@@ -199,9 +198,7 @@
         <div class="card-header">
           <div class="row">
             <div class="col-12 text-right">
-            <a href="#" class="btn btn-sm btn-success ">
-                        <i class="fa fa-plus px-2" aria-hidden="true"></i>Add
-                    </a>
+            
                     <a href="#" class="btn btn-sm btn-danger ">
                         <i class="fa fa-trash px-2" aria-hidden="true"></i>Trash bin
                     </a>
@@ -213,19 +210,30 @@
             <thead>
             <tr>
                 <th class="text-center">#</th>
-                <th class="text-center">Topic name</th>
-                <th class="text-center">Description</th>
+                <th class="text-center">User Name</th>
+                <th class="text-center">Delivery name</th>
+                <th class="text-center">Delivery gender</th>
+                <th class="text-center">Delivery email</th>
+                <th class="text-center">Delivery phone</th>
+                <th class="text-center">Delivery adress</th>
+                <th class="text-center">Delivery note</th>
                 <th class="text-center">Action</th>
                 <th class="text-center">ID</th>
-
+                <th class="text-center">Status</th>
             </tr>
             </thead>
             <tbody>
+              @foreach ($list as $row)
                 <tr>
-                    <td>1</td>
-                    <td>topicname</td>
-                    <td>Description</td>
-                    <td><a href="#" class="btn btn-sm btn-success ">
+                    <td><input type="checkbox" name="order_checkbox" value="1"></td>
+                    <td>{{$row->username}}</td>
+                    <td>{{$row->delivery_name}}</td>
+                    <td>{{$row->delivery_gender}}</td>
+                    <td>{{$row->delivery_email}}</td>
+                    <td>{{$row->delivery_phone}}</td>
+                    <td>{{$row->delivery_address}}</td>
+                    <td>{{$row->note}}</td>
+                     <td><a href="#" class="btn btn-sm btn-success ">
                         <i class="fa fa-toggle-on" aria-hidden="true"></i>
                     </a>
                     <a href="#" class="btn btn-sm btn-info ">
@@ -238,8 +246,10 @@
                         <i class="fa fa-trash" aria-hidden="true"></i>
                     </a>
                 </td>
-                <td>id</td>
+                <td>{{$row->id}}</td>
+                <td>{{$row->status}}</td>
                 </tr>
+              @endforeach
             </tbody>
           </table>
         </div>
