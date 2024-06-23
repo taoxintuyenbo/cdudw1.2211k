@@ -2,10 +2,13 @@
 @section('title','Home')
 @section('content')
 
-<x-product-category-home/>
-<x-slider/>
-<x-product-new/>
-<x-flash-sale/>
-<x-latest-post/>
+<div class="slider-container">
+    <x-slider/>
+</div>
 
+<x-product-new />
+
+<x-flash-sale/>  
+<x-latest-post/>
+<x-product-category-home/>
 @endsection

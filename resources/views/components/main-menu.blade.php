@@ -1,12 +1,16 @@
-<!-- <div class="collapse navbar-collapse" id="navbarCollapse">
-          <div class="navbar-nav ms-auto py-0">
-            <a href="index.html" class="nav-item nav-link active">Home</a>
-            <a href="./product.html" class="nav-item nav-link">Products</a>
-            <a href="./product_detail.html" class="nav-item nav-link"
-              >Products Detail</a
-            >
-            <a href="contact.html" class="nav-item nav-link">Contact</a>
-            <div class="nav-item search-container">
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #ffffff;">
+    <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                @foreach ($listmenu as $rowmenu)
+                    <x-main-menu-item :rowmenu="$rowmenu" />
+                @endforeach
+            </ul>
+        </div>
+        <div class="nav-item search-container">
               <input
                 type="text"
                 placeholder="Search..."
@@ -20,12 +24,34 @@
               >
                 <i class="bi bi-search" style="font-size: 24px"></i>
               </button>
-            </div>
-            <a href="#" class="nav-item nav-link"
-              ><i class="bi bi-person"></i>Login</a
-            >
-            <a href="cart.html" class="nav-item nav-link"
-              ><i class="bi bi-cart"></i>Cart</a
-            >
-          </div>
-        </div> -->
+        </div>
+        <div class="nav-item d-flex align-items-center">
+    <button class="btn btn-outline-primary me-2">
+        <i class="bi bi-person"></i> Login
+    </button>
+    <button class="btn btn-outline-primary">
+        <i class="bi bi-cart"></i> Cart
+    </button>
+</div>
+    </div>
+</nav>
+
+<style>
+    .navbar {
+        border: none;
+        box-shadow: none;
+        justify-content:center  !important;
+    }
+    .navbar-nav .nav-link {
+        color: #000000 !important;
+        font-family: "Arial", sans-serif !important;
+        margin-left: 0 !important;
+        padding: 0 !important;
+        font-size: 20px;
+
+ 
+    }
+    .navbar-toggler-icon {
+        color: #000000 !important;
+    }
+</style>

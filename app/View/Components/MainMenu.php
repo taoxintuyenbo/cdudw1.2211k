@@ -6,6 +6,7 @@ use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 use Illuminate\Support\Facades\DB;
+use App\Models\Menu;
 class MainMenu extends Component
 {
     /**
@@ -21,7 +22,13 @@ class MainMenu extends Component
      */
     public function render(): View|Closure|string
     {
-        $listmenu= DB::table('menu')->get();
-        $listmenu= Menu::get();
+   
+        $listmenu= Menu::where([
+            ['status', '=', 1],
+            ['position', '=', 'mainmenu'],
+            ['parent_id', '=', 0] // Assuming top-level menus have parent_id = 0
+        ])->orderBy('sort_order', 'asc')->limit(5)
+        ->get();
+        return view(('components.main-menu'),compact('listmenu'));
      }
 }

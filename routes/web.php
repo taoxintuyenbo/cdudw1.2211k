@@ -19,9 +19,12 @@ use App\Http\Controllers\backend\UserController;
 
 
 
- 
+//home 
 Route::get('/',[HomeController::Class,'index'])->name('site.home');
+//product
 Route::get('/product',[FrontendProductController::Class,'index'])->name('site.product');;
+//category
+Route::get('danh-muc/{slug}',[FrontendProductController::Class,'category'])->name('site.product.category');;
 
 Route::get('/product-detail/{slug}',[FrontendProductController::Class,'product_detail'])->name('site.product.detail');;
 
@@ -43,7 +46,7 @@ Route::prefix('admin')->group(function () {
         Route::put('update/{id}', [BackendProductController::class, 'update'])->name('admin.product.update');
         Route::get('delete/{id}', [BackendProductController::class, 'delete'])->name('admin.product.delete');
         Route::get('restore/{id}', [BackendProductController::class,'restore'])->name('admin.product.restore');
-        Route::get('destroy/{id}', [BackendProductController::class, 'destroy'])->name('admin.product.destroy');
+        Route::delete('destroy/{id}', [BackendProductController::class, 'destroy'])->name('admin.product.destroy');
         Route::get('status/{id}', [BackendProductController::class, 'status'])->name('admin.product.status');
     });
     
@@ -57,7 +60,7 @@ Route::prefix('admin')->group(function () {
         Route::put('update/{id}', [CategoryController::class, 'update'])->name('admin.category.update');
         Route::get('delete/{id}', [CategoryController::class, 'delete'])->name('admin.category.delete');
         Route::get('restore/{id}', [CategoryController::class,'restore'])->name('admin.category.restore');
-        Route::get('destroy/{id}', [CategoryController::class, 'destroy'])->name('admin.category.destroy');
+        Route::delete('destroy/{id}', [CategoryController::class, 'destroy'])->name('admin.category.destroy');
         Route::get('status/{id}', [CategoryController::class, 'status'])->name('admin.category.status');
     });
     //banner
@@ -71,7 +74,7 @@ Route::prefix('admin')->group(function () {
         Route::put('update/{id}', [BannerController::class, 'update'])->name('admin.banner.update');
         Route::get('delete/{id}', [BannerController::class, 'delete'])->name('admin.banner.delete');
         Route::get('restore/{id}', [BannerController::class,'restore'])->name('admin.banner.restore');
-        Route::get('destroy/{id}', [BannerController::class, 'destroy'])->name('admin.banner.destroy');
+        Route::delete('destroy/{id}', [BannerController::class, 'destroy'])->name('admin.banner.destroy');
         Route::get('status/{id}', [BannerController::class, 'status'])->name('admin.banner.status');
 
     });
@@ -87,7 +90,7 @@ Route::prefix('admin')->group(function () {
         Route::put('update/{id}', [BrandController::class, 'update'])->name('admin.brand.update');
         Route::get('delete/{id}', [BrandController::class, 'delete'])->name('admin.brand.delete');
         Route::get('restore/{id}', [BrandController::class,'restore'])->name('admin.brand.restore');
-        Route::get('destroy/{id}', [BrandController::class, 'destroy'])->name('admin.brand.destroy');
+        Route::delete('destroy/{id}', [BrandController::class, 'destroy'])->name('admin.brand.destroy');
         Route::get('status/{id}', [BrandController::class, 'status'])->name('admin.brand.status');
 
     });
@@ -103,7 +106,7 @@ Route::prefix('admin')->group(function () {
         Route::put('update/{id}', [BackendContactController::class, 'update'])->name('admin.contact.update');
         Route::get('delete/{id}', [BackendContactController::class, 'delete'])->name('admin.contact.delete');
         Route::get('restore/{id}', [BackendContactController::class,'restore'])->name('admin.contact.restore');
-        Route::get('destroy/{id}', [BackendContactController::class, 'destroy'])->name('admin.contact.destroy');
+        Route::delete('destroy/{id}', [BackendContactController::class, 'destroy'])->name('admin.contact.destroy');
         Route::get('status/{id}', [BackendContactController::class, 'status'])->name('admin.contact.status');
     });
 
@@ -118,7 +121,7 @@ Route::prefix('admin')->group(function () {
         Route::put('update/{id}', [MenuController::class, 'update'])->name('admin.menu.update');
         Route::get('delete/{id}', [MenuController::class, 'delete'])->name('admin.menu.delete');
         Route::get('restore/{id}', [MenuController::class,'restore'])->name('admin.menu.restore');
-        Route::get('destroy/{id}', [MenuController::class, 'destroy'])->name('admin.menu.destroy');
+        Route::delete('destroy/{id}', [MenuController::class, 'destroy'])->name('admin.menu.destroy');
         Route::get('status/{id}', [MenuController::class, 'status'])->name('admin.menu.status');
 
     });
@@ -134,7 +137,7 @@ Route::prefix('admin')->group(function () {
         Route::put('update/{id}', [OrderController::class, 'update'])->name('admin.order.update');
         Route::get('delete/{id}', [OrderController::class, 'delete'])->name('admin.order.delete');
         Route::get('restore/{id}', [OrderController::class,'restore'])->name('admin.order.restore');
-        Route::get('destroy/{id}', [OrderController::class, 'destroy'])->name('admin.order.destroy');
+        Route::delete('destroy/{id}', [OrderController::class, 'destroy'])->name('admin.order.destroy');
         Route::get('status/{id}', [OrderController::class, 'status'])->name('admin.order.status');
 
     });
@@ -150,7 +153,7 @@ Route::prefix('admin')->group(function () {
         Route::put('update/{id}', [OrderdetailController::class, 'update'])->name('admin.orderdetail.update');
         Route::get('delete/{id}', [OrderdetailController::class, 'delete'])->name('admin.orderdetail.delete');
         Route::get('restore/{id}', [OrderdetailController::class,'restore'])->name('admin.orderdetail.restore');
-        Route::get('destroy/{id}', [OrderdetailController::class, 'destroy'])->name('admin.orderdetail.destroy');
+        Route::delete('destroy/{id}', [OrderdetailController::class, 'destroy'])->name('admin.orderdetail.destroy');
         Route::get('status/{id}', [OrderdetailController::class, 'status'])->name('admin.orderdetail.status');
 
     });
@@ -166,7 +169,7 @@ Route::prefix('admin')->group(function () {
     Route::put('update/{id}', [PostController::class, 'update'])->name('admin.post.update');
     Route::get('delete/{id}', [PostController::class, 'delete'])->name('admin.post.delete');
     Route::get('restore/{id}', [PostController::class,'restore'])->name('admin.post.restore');
-    Route::get('destroy/{id}', [PostController::class, 'destroy'])->name('admin.post.destroy');
+    Route::delete('destroy/{id}', [PostController::class, 'destroy'])->name('admin.post.destroy');
     Route::get('status/{id}', [PostController::class, 'status'])->name('admin.post.status');
 
 });
@@ -182,7 +185,7 @@ Route::prefix('admin')->group(function () {
         Route::put('update/{id}', [TopicController::class, 'update'])->name('admin.topic.update');
         Route::get('delete/{id}', [TopicController::class, 'delete'])->name('admin.topic.delete');
         Route::get('restore/{id}', [TopicController::class,'restore'])->name('admin.topic.restore');
-        Route::get('destroy/{id}', [TopicController::class, 'destroy'])->name('admin.topic.destroy');
+        Route::delete('destroy/{id}', [TopicController::class, 'destroy'])->name('admin.topic.destroy');
         Route::get('status/{id}', [TopicController::class, 'status'])->name('admin.topic.status');
 
     });
@@ -197,7 +200,7 @@ Route::prefix('admin')->group(function () {
         Route::put('update/{id}', [UserController::class, 'update'])->name('admin.user.update');
         Route::get('delete/{id}', [UserController::class, 'delete'])->name('admin.user.delete');
         Route::get('restore/{id}', [UserController::class,'restore'])->name('admin.user.restore');
-        Route::get('destroy/{id}', [UserController::class, 'destroy'])->name('admin.user.destroy');
+        Route::delete('destroy/{id}', [UserController::class, 'destroy'])->name('admin.user.destroy');
         Route::get('status/{id}', [UserController::class, 'status'])->name('admin.user.status');
 
     });

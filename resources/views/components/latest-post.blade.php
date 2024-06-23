@@ -1,13 +1,21 @@
-<div class="new-posts">
-    <h2>New posts</h2>
+<div class="new-products">
+    <h2>Latest Post</h2>
     <div id="product-container" class="d-flex flex-wrap">
-      <!-- Card 1 -->
-      <x-product-card/>
-      <!-- Card 2 -->
-      <x-product-card/>
-      <!-- Card 3 -->
-      <x-product-card/>
-      <!-- Card 4 -->
-      <x-product-card/>
+        <div class="section_product_new my-5">
+            <div class="container">
+                 <div class="row">
+                    @foreach ($listpost as $post)
+                        <div class="col-md-3 mb-3">
+                            <x-post-card :post="$post" />
+                        </div>
+                    @endforeach
+                </div>
+                <div class="row mt-5">
+                    <div class="col-12 text-center">
+                        <button class="btn btn-success px-5">More products</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
+</div>

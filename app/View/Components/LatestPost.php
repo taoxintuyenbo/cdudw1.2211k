@@ -5,7 +5,7 @@ namespace App\View\Components;
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
-
+use App\Models\Post;
 class LatestPost extends Component
 {
     /**
@@ -21,6 +21,11 @@ class LatestPost extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.latest-post');
+        $listpost = Post::where('status', '=', '1')
+        ->orderBy('created_at', 'desc')
+        ->limit(4)
+        ->get();
+
+        return view('components.latest-post',compact('listpost'));
     }
 }

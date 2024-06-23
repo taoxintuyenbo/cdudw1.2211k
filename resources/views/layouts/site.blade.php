@@ -5,34 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@yield('title')</title>
     <link href="img/favicon.ico" rel="icon" />
-
+    
     <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600;700&family=Open+Sans:wght@400;600&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
-      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
-      crossorigin="anonymous"
-    />
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
-      rel="stylesheet"
-    />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"
-      rel="stylesheet"
-    />
-{{--
-    <link href="css/style.css" rel="stylesheet" /> --}}
-
-    <link href={{ asset('assets/css/style.css') }} rel="stylesheet" />
-   </head>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" />
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    
+    <!-- Font Awesome CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet" />
+    
+    <!-- Custom CSS -->
+    <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet" />
+  </head>
   <body>
     <header>
-      <nav
+    <nav
         class="navbar navbar-expand-lg bg-white navbar-light shadow-sm py-3 py-lg-0 px-3 px-lg-0"
       >
         <div class="navbar-brand-container">
@@ -47,45 +36,13 @@
           >
             <span class="navbar-toggler-icon"></span>
           </button>
-        </div>
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-          <div class="navbar-nav ms-auto py-0">
-            <a href="index.html" class="nav-item nav-link active">Home</a>
-            <a href="./product.html" class="nav-item nav-link">Products</a>
-            <a href="./product_detail.html" class="nav-item nav-link"
-              >Products Detail</a
-            >
-            <a href="contact.html" class="nav-item nav-link">Contact</a>
-            <div class="nav-item search-container">
-              <input
-                type="text"
-                placeholder="Search..."
-                class="search-input py-2 px-4 rounded ml-3"
-                style="border: 1px solid black"
-              />
-              <button
-                type="submit"
-                class="search-button btn btn-link"
-                style="color: blue; border: none; background: none"
-              >
-                <i class="bi bi-search" style="font-size: 24px"></i>
-              </button>
-            </div>
-            <a href="#" class="nav-item nav-link"
-              ><i class="bi bi-person"></i>Login</a
-            >
-            <a href="cart.html" class="nav-item nav-link"
-              ><i class="bi bi-cart"></i>Cart</a
-            >
-          </div>
-        </div>
-      <!-- <x-main-menu/> -->
+         </div>
+        <x-main-menu/>
       </nav>
     </header>
     <main>
         @yield('content')
     </main>
-
     <footer>
       <div class="container-fluid bg-dark text-light py-5">
         <div class="container">
@@ -100,15 +57,9 @@
               <h3 class="text-white mb-4">Follow Us</h3>
               <div class="social-links">
                 <a href="#" class="twitter"><i class="fab fa-twitter"></i></a>
-                <a href="#" class="facebook"
-                  ><i class="fab fa-facebook-f"></i
-                ></a>
-                <a href="#" class="linkedin"
-                  ><i class="fab fa-linkedin-in"></i
-                ></a>
-                <a href="#" class="instagram"
-                  ><i class="fab fa-instagram"></i
-                ></a>
+                <a href="#" class="facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="linkedin"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" class="instagram"><i class="fab fa-instagram"></i></a>
               </div>
             </div>
           </div>
@@ -118,20 +69,15 @@
         <div class="container">
           <div class="row">
             <div class="col-md-6 text-center text-md-start">
-              <p class="mb-md-0">
-                &copy; <a href="#">Your Site Name</a>. All Rights Reserved.
-              </p>
+              <p class="mb-md-0">&copy; <a href="#">Your Site Name</a>. All Rights Reserved.</p>
             </div>
             <div class="col-md-6 text-center text-md-end">
-              <p class="mb-0">
-                Designed by <a href="https://htmlcodex.com">HTML Codex</a>
-              </p>
+              <p class="mb-0">Designed by <a href="https://htmlcodex.com">HTML Codex</a></p>
             </div>
           </div>
         </div>
       </div>
     </footer>
-
     <script>
       let slideIndex = 1;
       showSlides(slideIndex);
@@ -153,5 +99,7 @@
         slides[slideIndex - 1].style.display = "block";
       }
     </script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
   </body>
 </html>

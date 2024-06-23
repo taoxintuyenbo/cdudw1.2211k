@@ -5,7 +5,7 @@ namespace App\View\Components;
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
-
+use App\Models\Product;
 class FlashSale extends Component
 {
     /**
@@ -21,6 +21,10 @@ class FlashSale extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.flash-sale');
+        $listproduct = Product::where([['status', '=', '1'],['pricesale','>',0]])
+        ->orderBy('pricesale', 'desc')
+        ->limit(4)
+        ->get();
+        return view('components.flash-sale', compact('listproduct'));
     }
 }

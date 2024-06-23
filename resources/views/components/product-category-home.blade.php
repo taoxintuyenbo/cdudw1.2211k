@@ -1,9 +1,23 @@
-<nav class="category-bar">
-    <ul class="category-list">
-      <li class="category-item"><a href="#electronics">Electronics</a></li>
-      <li class="category-item"><a href="#apparel">Apparel</a></li>
-      <li class="category-item"><a href="#home-goods">Home Goods</a></li>
-      <li class="category-item"><a href="#books">Books</a></li>
-      <li class="category-item"><a href="#sports">Sports</a></li>
-    </ul>
-  </nav>
+@foreach ($category_list as $cat_row)
+<div id="product-container" class="d-flex flex-wrap">
+    <div class="section_product_new my-5">
+        <div class="container">
+            <h1>{{ $cat_row->name }} - {{$cat_row->id}}</h1>
+            <div class="row">
+                <div class="col-md-12">
+                    <img class="img-fluid w-100" src="{{ asset('images/category_nam.png') }}" alt="">
+                </div>
+            </div>
+            <div class="row">
+                    <x-product-category :catrow="$cat_row"/>
+            </div>
+            <div class="row mt-5">
+                <div class="col-12 text-center">
+                    <button class="btn btn-success px-5">More products</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@endforeach
+
